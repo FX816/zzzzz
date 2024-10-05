@@ -73,7 +73,7 @@ const Form = () => {
                         <input type="text" {...register("sms")} className='border  w-[200px] sm:w-[400px] text-black  h-16 btext-black dark:orderwhite d rounded-xl border-[#FFD700]  pl-2 bg-transparent mx-auto flex items-center justify-between' />
                     </div>
 
-                    <button type='submit'  className='bg-[#00B3B3]  w-[200px] sm:w-[400px] h-10 text-black '>
+                    <button type='submit'  className='bg-[#FFD700]  w-[200px] sm:w-[400px] h-10 text-black '>
                         Send
                     </button>
                 </form>
