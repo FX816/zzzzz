@@ -1,6 +1,8 @@
 const home = {
-    name:"Привет, я Firdavs Xalikov",
-    stack:"Frontend-веб-разработчик",
-    home:"Главная",
- }
- export default home 
+    name: "Привет, я Firdavs Xalikov",
+    stack: "Frontend-веб-разработчик",
+    home: "Главная",
+    skil: "Навыки",
+    info: "Добро пожаловать в мое портфолио! Я увлеченный фронтенд-разработчик, стремящийся создавать удобные и адаптивные веб-сайты.",
+}
+export default home 

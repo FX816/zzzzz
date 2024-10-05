@@ -11,24 +11,29 @@ import Uabout from "./lang/uz/about";
 import Ehome from "./lang/en/home";
 import Rhome from "./lang/ru/home";
 import Uhome from "./lang/uz/home";
+import Eskill from "./lang/en/Skill";
+import Rskill from "./lang/ru/Skill";
+import Uskill from "./lang/uz/Skill";
 
 // Sample translation resources
 const resources = {
   en: {
-    layout : Elayout,
-    about : Eabout,
+    layout: Elayout,
+    about: Eabout,
     home: Ehome,
+    skill: Eskill,
   },
   ru: {
-    layout : Rlayout,
-    about : Rabout,
+    layout: Rlayout,
+    about: Rabout,
     home: Rhome,
-
+    skill: Rskill,
   },
   uz: {
-    layout : Ulayout,
-    about : Uabout,
+    layout: Ulayout,
+    about: Uabout,
     home: Uhome,
+    skill: Uskill,
   },
 };
 
