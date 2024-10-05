@@ -23,7 +23,7 @@ export function Header() {
   // const { z } = useTranslation("home");
 
   const navList = (
-    <ul className="pt-2 pb-4 flex flex-col gap-2 lg:pb-0 lg:pt-0 border-none lg:flex-row lg:items-center lg:gap-6">
+    <ul className="pt-2 pb-4  flex flex-col gap-2 lg:pb-0 lg:pt-0 border-none lg:flex-row lg:items-center lg:gap-6">
       <Typography
         as="li"
         variant="small"
@@ -144,7 +144,7 @@ export function Header() {
         </Typography>
 
 
-        <div className="hidden lg:block">{navList}</div>
+        <div className="hidden lg:block bg-transparent">{navList}</div>
         <div className="flex flex-row gap-7 items-center ml-20 md:ml-52" >
          <div className="hidden md:flex items-center gap-7">
           <LanguageSwitcher />

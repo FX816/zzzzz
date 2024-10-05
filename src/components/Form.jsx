@@ -55,22 +55,22 @@ const Form = () => {
                     <div className="flex flex-col xl:flex-row gap-5 ">
                         <div className="flex flex-col gap-2">
                             <h1 className='text-black dark:text-[#FFD700]'>Имя:</h1>
-                            <input {...register("ism")} type="text" className='border border-solid w-[200px] sm:w-[187px] text-black dark:text-white   rounded-xl border-[#00B3B3] bg-transparent mx-auto flex items-center justify-between pl-2' placeholder='Имя' />
+                            <input {...register("ism")} type="text" className='border border-solid w-[200px] sm:w-[187px] text-black dark:text-white   rounded-xl border-[#FFD700]  bg-transparent mx-auto flex items-center justify-between pl-2' placeholder='Имя' />
                         </div>
                         <div className="flex flex-col gap-2">
                             {/* <h1></h1> */}
                             <h1 className='text-black dark:text-[#FFD700]'>Телефон:</h1>
-                            <input type='text' {...register("number")} className='border border-solid w-[200px] sm:w-[187px] text-black dark:text-white   rounded-xl border-[#00B3B3] pl-2 bg-transparent mx-auto flex items-center justify-between' placeholder='+998' />
+                            <input type='text' {...register("number")} className='border border-solid w-[200px] sm:w-[187px] text-black dark:text-white   rounded-xl border-[#FFD700]  pl-2 bg-transparent mx-auto flex items-center justify-between' placeholder='+998' />
                         </div>
                     </div>
 
                     <div className="flex flex-col gap-2">
                         <h1 className='text-black dark:text-[#FFD700]'>Email:</h1>
-                        <input type="text" {...register("email")} className='border  w-[200px] sm:w-[400px] text-black  btext-black dark:orderwhite d rounded-xl border-[#00B3B3] pl-2 bg-transparent mx-auto flex items-center justify-between' placeholder='email@gmail.com' />
+                        <input type="text" {...register("email")} className='border  w-[200px] sm:w-[400px] text-black  btext-black dark:orderwhite d rounded-xl border-[#FFD700]  pl-2 bg-transparent mx-auto flex items-center justify-between' placeholder='email@gmail.com' />
                     </div>
                     <div className="flex flex-col gap-2 ">
                         <h1 className='text-black dark:text-[#FFD700]'>SMS:</h1>
-                        <input type="text" {...register("sms")} className='border  w-[200px] sm:w-[400px] text-black  h-16 btext-black dark:orderwhite d rounded-xl border-[#00B3B3] pl-2 bg-transparent mx-auto flex items-center justify-between' />
+                        <input type="text" {...register("sms")} className='border  w-[200px] sm:w-[400px] text-black  h-16 btext-black dark:orderwhite d rounded-xl border-[#FFD700]  pl-2 bg-transparent mx-auto flex items-center justify-between' />
                     </div>
 
                     <button type='submit'  className='bg-[#00B3B3]  w-[200px] sm:w-[400px] h-10 text-black '>
