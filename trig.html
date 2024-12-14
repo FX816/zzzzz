@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Изучаем тригонометрию | Радианная мера угла</title>
+    <link rel="stylesheet" href="trig.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#" class="logo">Тригонометрия</a>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="#active" class="active">Главная</a></li>
+                <li><a href="#theory">Теория</a></li>
+                <li><a href="#practice">Практика</a></li>
+                <li><a href="#quiz">Тест</a></li>
+                
+            </ul>
+
+            <div class="nav-controls">
+                <button id="themeToggle" class="theme-toggle">
+                    <span class="toggle-icon">🌙</span>
+                </button>
+                <button class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="hero" id="active">
+            <h1>Радианная мера угла</h1>
+            <p class="subtitle">Интерактивное изучение тригонометрии</p>
+        </section>
+
+        <section class="visualization-section">
+            <div class="canvas-container">
+                <canvas id="unitCircle"></canvas>
+                <div class="angle-display">
+                    <span id="angleDegrees">0°</span>
+                    <span id="angleRadians">0 рад</span>
+                </div>
+                <div class="angle-controls">
+                    <button class="control-button" id="decreaseAngle">-</button>
+                    <button class="control-button" id="playPause">▶</button>
+                    <button class="control-button" id="increaseAngle">+</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="theory" class="theory-section">
+            <h2>Что такое радианная мера угла?</h2>
+            <p>Радиан — это единица измерения углов, определяемая как угол между двумя радиусами окружности, длина дуги между которыми равна радиусу.</p>
+            
+            <div class="key-concepts">
+                <h3>Ключевые концепции:</h3>
+                <ul class="animated-list">
+                    <li class="concept-item">
+                        <span class="concept-icon">📐</span>
+                        <div class="concept-content">
+                            <h4>Определение радиана</h4>
+                            <p>Радиан — это угол, при котором длина дуги равна радиусу окружности</p>
+                        </div>
+                    </li>
+                    <li class="concept-item">
+                        <span class="concept-icon">🔄</span>
+                        <div class="concept-content">
+                            <h4>Полный круг</h4>
+                            <p>2π радиан = 360 градусов</p>
+                        </div>
+                    </li>
+                    <li class="concept-item">
+                        <span class="concept-icon">➗</span>
+                        <div class="concept-content">
+                            <h4>Преобразование</h4>
+                            <p>1 радиан ≈ 57.3 градуса</p>
+                        </div>
+                    </li>
+                    <li class="concept-item">
+                        <span class="concept-icon">📊</span>
+                        <div class="concept-content">
+                            <h4>Четверть круга</h4>
+                            <p>π/2 радиан = 90 градусов</p>
+                        </div>
+                    </li>
+                    <li class="concept-item">
+                        <span class="concept-icon">🎯</span>
+                        <div class="concept-content">
+                            <h4>Важные углы</h4>
+                            <p>π/6 (30°), π/4 (45°), π/3 (60°)</p>
+                        </div>
+                    </li>
+                    <li class="concept-item">
+                        <span class="concept-icon">💡</span>
+                        <div class="concept-content">
+                            <h4>Преимущества</h4>
+                            <p>Радианы упрощают многие математические формулы</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="formula-box">
+                <p>Формула перевода градусов в радианы:</p>
+                <div class="math-formula">\[ \text{радианы} = \text{градусы} \cdot \frac{\pi}{180} \]</div>
+            </div>
+
+            <div class="formula-box">
+                <p>Основные значения углов:</p>
+                <ul class="angle-values">
+                    <li>90° = \(\frac{\pi}{2}\) рад</li>
+                    <li>180° = \(\pi\) рад</li>
+                    <li>270° = \(\frac{3\pi}{2}\) рад</li>
+                    <li>360° = 2\(\pi\) рад</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="practice" class="practice-section">
+            <h2>Практика</h2>
+            <div class="calculator">
+                <h3>Конвертер углов</h3>
+                <div class="converter-inputs">
+                    <div class="input-group">
+                        <label for="degrees">Градусы:</label>
+                        <input type="number" id="degrees" placeholder="0">
+                    </div>
+                    <div class="input-group">
+                        <label for="radians">Радианы:</label>
+                        <input type="number" id="radians" placeholder="0">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="quiz-section" id="quiz">
+            <h2>Проверь свои знания!</h2>
+            <div class="quiz-container">
+                <div class="quiz-header">
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <span class="question-counter">Вопрос 1 из 10</span>
+                    </div>
+                    <div class="quiz-score">
+                        Очки: <span class="score-value">0</span>
+                    </div>
+                </div>
+                
+                <div class="quiz-content">
+                    <div class="question-container">
+                        <p class="question-text">Загрузка вопроса...</p>
+                    </div>
+                    <div class="options-container">
+                        <!-- Options will be added dynamically -->
+                    </div>
+                </div>
+
+                
+
+                <div class="quiz-controls">
+                    <button class="quiz-button start-button">Начать тест</button>
+                    <button class="quiz-button next-button hidden">Следующий вопрос</button>
+                    <button class="quiz-button continue-button">Продолжить</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container" >
+            <p> 2024 Изучаем тригонометрию. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="trig.js"></script>
+</body>
+</html>

@@ -1,0 +1,1090 @@
+:root {
+    /* Light theme */
+    --primary-color: #4a90e2;
+    --secondary-color: #5c6ac4;
+    --accent-color: #f0b429;
+    --background-color: #ffffff;
+    --section-bg: #f8fafc;
+    --text-color: #2d3748;
+    --border-color: #e2e8f0;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --navbar-bg: #ffffff;
+    --hover-bg: #f7f7f7;
+}
+
+[data-theme="dark"] {
+    --primary-color: #60a5fa;
+    --secondary-color: #818cf8;
+    --accent-color: #fbbf24;
+    --background-color: #1a1a1a;
+    --section-bg: #2d2d2d;
+    --text-color: #e2e8f0;
+    --border-color: #4a5568;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --navbar-bg: #1a1a1a;
+    --hover-bg: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--background-color);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    flex-shrink: 0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.logo:hover {
+    color: var(--secondary-color);
+}
+
+/* Navigation links */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    color: var(--primary-color);
+}
+
+/* Mobile menu styles */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background: var(--background-color);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease;
+        gap: 2rem;
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-links li {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+    }
+
+    .nav-links.active li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .nav-links li a {
+        font-size: 1.25rem;
+        padding: 1rem 0;
+    }
+
+    /* Staggered animation for menu items */
+    .nav-links.active li:nth-child(1) { transition-delay: 0.1s; }
+    .nav-links.active li:nth-child(2) { transition-delay: 0.2s; }
+    .nav-links.active li:nth-child(3) { transition-delay: 0.3s; }
+    .nav-links.active li:nth-child(4) { transition-delay: 0.4s; }
+}
+
+/* Add smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Prevent body scroll when mobile menu is open */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* Theme toggle and hamburger */
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--hover-bg);
+    transform: rotate(15deg);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+        z-index: 100;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
+
+/* Add margin to main content */
+main {
+    margin-top: 5rem;
+}
+
+/* Dark mode enhancements */
+[data-theme="dark"] .btn-quiz {
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Hero section styles */
+.hero {
+    text-align: center;
+    padding: 4rem 0;
+    animation: slideIn 0.8s ease-out;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.hero .subtitle {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* Visualization section styles */
+.visualization-section {
+    padding: 2rem 0;
+}
+
+.canvas-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    aspect-ratio: 1;
+    position: relative;
+    background: var(--section-bg);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 30px var(--shadow-color);
+    animation: scaleIn 0.8s ease-out;
+}
+
+#unitCircle {
+    width: 100%;
+    height: 100%;
+    display: block;
+    animation: float 6s ease-in-out infinite;
+}
+
+.angle-controls {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1.5rem;
+    background: var(--section-bg);
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.control-button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-button:hover {
+    background: var(--secondary-color);
+    transform: scale(1.1);
+}
+
+.angle-display {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: var(--section-bg);
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+/* Theory section styles */
+.theory-section {
+    padding: 4rem 0;
+}
+
+.theory-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+.formula-box {
+    background: var(--section-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.formula-box p {
+    margin-bottom: 1rem;
+}
+
+.angle-values {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.angle-values li {
+    padding: 0.5rem;
+    background: var(--background-color);
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Practice section styles */
+.practice-section {
+    padding: 4rem 0;
+}
+
+.calculator {
+    background: var(--section-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.calculator h3 {
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.converter-inputs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-weight: bold;
+}
+
+.input-group input {
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--background-color);
+    color: var(--text-color);
+    font-size: 1.1rem;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* Footer styles */
+footer {
+    background: var(--section-bg);
+    padding: 2rem 0;
+    margin-top: 4rem;
+    text-align: center;
+    box-shadow: 0 -2px 10px var(--shadow-color);
+}
+
+/* Quiz section styles */
+.quiz-section {
+    padding: 4rem 0;
+}
+
+.quiz-container {
+    background: var(--section-bg);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 30px var(--shadow-color);
+    max-width: 800px;
+    margin: 0 auto;
+    animation: slideIn 0.8s ease-out;
+}
+
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.quiz-progress {
+    flex: 1;
+    margin-right: 2rem;
+}
+
+.progress-bar {
+    height: 8px;
+    background: linear-gradient(45deg, 
+        rgba(255, 255, 255, 0.1) 25%, 
+        transparent 25%, 
+        transparent 50%, 
+        rgba(255, 255, 255, 0.1) 50%, 
+        rgba(255, 255, 255, 0.1) 75%, 
+        transparent 75%, 
+        transparent);
+    background-size: 30px 30px;
+    animation: progressStripes 1s linear infinite;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        var(--primary-color) 0%,
+        var(--secondary-color) 50%,
+        var(--primary-color) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s linear infinite;
+}
+
+.question-counter {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.quiz-score {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.quiz-content {
+    margin-bottom: 2rem;
+}
+
+.question-container {
+    margin-bottom: 2rem;
+}
+
+.question-text {
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.options-container {
+    display: grid;
+    gap: 1rem;
+}
+
+.option-button {
+    width: 100%;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+    background: var(--background-color);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.option-button:hover:not(:disabled) {
+    background: var(--hover-bg);
+    transform: translateX(5px);
+}
+
+.option-button:disabled {
+    cursor: default;
+}
+
+.option-button.correct {
+    background: #4ade80;
+    border-color: #4ade80;
+    color: white;
+}
+
+.option-button.wrong {
+    background: #f87171;
+    border-color: #f87171;
+    color: white;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0;
+    height: 100%;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.quiz-feedback {
+    background: var(--background-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    animation: slideIn 0.5s ease-out;
+}
+
+.feedback-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+    animation: bounce 1s ease-out;
+}
+
+.feedback-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.feedback-explanation {
+    font-size: 1rem;
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+.quiz-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.quiz-button {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 180px;
+}
+
+.quiz-button:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.quiz-button.hidden {
+    display: none;
+}
+
+.start-button {
+    background: var(--primary-color);
+}
+
+.continue-button {
+    background: var(--accent-color);
+}
+
+.next-button {
+    background: var(--secondary-color);
+}
+
+.quiz-section h2 {
+    position: relative;
+    display: inline-block;
+}
+
+.quiz-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.quiz-section h2:hover::after {
+    transform: scaleX(1);
+}
+
+.continue-button {
+    background: var(--accent-color);
+}
+
+.continue-button:hover {
+    background: var(--secondary-color);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+@keyframes progressStripes {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 30px 0;
+    }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--border-color);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .canvas-container {
+        padding: 1.5rem;
+    }
+
+    .angle-controls {
+        padding: 0.5rem 1rem;
+    }
+
+    .control-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .quiz-container {
+        padding: 1.5rem;
+    }
+
+    .quiz-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .quiz-progress {
+        margin-right: 0;
+        width: 100%;
+    }
+
+    .question-text {
+        font-size: 1.1rem;
+    }
+
+    .option-button {
+        font-size: 1rem;
+    }
+
+    .mobile-menu-button {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 100%;
+        background: var(--navbar-bg);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.3s ease;
+        backdrop-filter: blur(10px);
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-menu li {
+        margin: 1.5rem 0;
+        opacity: 0;
+        transform: translateX(50px);
+        transition: all 0.3s ease;
+    }
+
+    .nav-menu.active li {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .nav-menu.active li:nth-child(1) { transition-delay: 0.2s; }
+    .nav-menu.active li:nth-child(2) { transition-delay: 0.3s; }
+    .nav-menu.active li:nth-child(3) { transition-delay: 0.4s; }
+    .nav-menu.active li:nth-child(4) { transition-delay: 0.5s; }
+    .nav-menu.active li:nth-child(5) { transition-delay: 0.6s; }
+
+    .mobile-menu-button.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .mobile-menu-button.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu-button.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
+
+/* Key Concepts List Styles */
+.key-concepts {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: var(--section-bg);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px var(--shadow-color);
+}
+
+.key-concepts h3 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.key-concepts h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.key-concepts h3:hover::after {
+    transform: scaleX(1);
+}
+
+.animated-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.concept-item {
+    background: var(--background-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideInUp 0.5s ease forwards;
+}
+
+.concept-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow-color);
+}
+
+.concept-icon {
+    font-size: 2rem;
+    padding: 1rem;
+    background: var(--section-bg);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.concept-item:hover .concept-icon {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.concept-content {
+    flex: 1;
+}
+
+.concept-content h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.concept-content p {
+    color: var(--text-color);
+    font-size: 1rem;
+    line-height: 1.4;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Animation for list items */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply animations with delays */
+.concept-item:nth-child(1) { animation-delay: 0.1s; }
+.concept-item:nth-child(2) { animation-delay: 0.2s; }
+.concept-item:nth-child(3) { animation-delay: 0.3s; }
+.concept-item:nth-child(4) { animation-delay: 0.4s; }
+.concept-item:nth-child(5) { animation-delay: 0.5s; }
+.concept-item:nth-child(6) { animation-delay: 0.6s; }
+
+/* Hover animations for icons */
+@keyframes iconBounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2) rotate(10deg); }
+}
+
+.concept-item:hover .concept-icon {
+    animation: iconBounce 0.5s ease;
+}
+
+/* Add glow effect on hover */
+.concept-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 12px;
+    background: linear-gradient(
+        45deg,
+        var(--primary-color),
+        var(--secondary-color)
+    );
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+.concept-item:hover::before {
+    opacity: 0.1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .animated-list {
+        grid-template-columns: 1fr;
+    }
+
+    .concept-item {
+        padding: 1rem;
+    }
+
+    .concept-icon {
+        font-size: 1.5rem;
+        padding: 0.75rem;
+    }
+
+    .concept-content h4 {
+        font-size: 1.1rem;
+    }
+
+    .concept-content p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Dark mode enhancements */
+[data-theme="dark"] .concept-item {
+    background: var(--section-bg);
+}
+
+[data-theme="dark"] .concept-icon {
+    background: var(--background-color);
+}
+
+/* Add subtle hover lift effect */
+.concept-item {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.concept-item:hover {
+    transform: translateY(-5px) scale(1.02);
+}
+
+/* Add pulsing animation for icons on hover */
+@keyframes iconPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.concept-icon:hover {
+    animation: iconPulse 1s infinite;
+}
